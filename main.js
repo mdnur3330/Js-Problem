@@ -69,8 +69,31 @@ function  isBestFriend( f1,f2 ) {
          return false;
      }
  }
- const nr1 = isBestFriend(
-    { name: "hashem", roll: 1 , bestFriend: 1},
-    { name: "kashem" , roll: 1, bestFriend: 1 }
- )
-console.log(nr1);
+ 
+
+
+// Problem-05: Let’s Calculate Video watch Time
+
+function  calculateWatchTime( times ) {
+    if(!Array.isArray(times) || isNaN(times)){
+        return "Invalid";
+    }
+    let second = 0;
+    for(let time of times){
+        second += time;
+    }
+
+    let minutes = second / 60;
+    let hours = Math.floor(minutes / 60)
+    let totalMinutes = Math.floor(minutes % 60)
+    let totalSecond = second % 60 ;
+
+    return { hour: hours , minute: totalMinutes , second: totalSecond } 
+}           
+
+ 
+
+
+
+
+ 

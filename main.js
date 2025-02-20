@@ -1,18 +1,17 @@
-// Problem-01 : Calculate the cash-out Charge 
 
 function cashOut( money ) {
-    if(typeof money !== 'number' || money <0){
+    if(typeof money !== 'number' || money <0 || arguments.length > 1){
         return "Invalid";
     }
     const  cashoutCost = money * 1.75 / 100;
     return cashoutCost;
 }
 
-// Problem-02 : Detect email  valid or not
+
 
 function  validEmail( email ) {
  
-    if(typeof email !== 'string' || email == ' ' || email == ''){
+    if(typeof email !== 'string' || email == ' ' || email == '' ||  arguments.length > 1){
         return "Invalid" 
     }
    
@@ -29,22 +28,23 @@ function  validEmail( email ) {
 
 
 
-// Problem-03 : Who will Win  ( 🥭Mango /🍌 Banana ) 
-
     function  electionResult( votes ) {
-        if(!Array.isArray(votes)){
+        if(!Array.isArray(votes) || arguments.length > 1){
             return "Invalid";
         }
         let mangoBox = [];
         let bananaBox = [];
     
         for(let vote of votes){
-            if(vote === 'mango'){
+            if(typeof vote !== 'string'){
+                return "Invalid";
+            }else if(vote === 'mango'){
                 mangoBox.push(vote)
             }else if(vote === 'banana'){
                 bananaBox.push(vote)
             }
         }
+    
     
        if(mangoBox.length > bananaBox.length){
         return "Mango";
@@ -56,11 +56,10 @@ function  validEmail( email ) {
         
     }
 
-    // Problem-04: Detect The Perfect Best Friend 
 
 function  isBestFriend( f1,f2 ) {
-  
-    if(typeof f1 !== 'object' || typeof f2 !== 'object'  || Object.keys(f1).length === 0|| Object.keys(f2).length === 0 || Array.isArray(f1) || Array.isArray(f2)){
+
+    if(typeof f1 !== 'object' || typeof f2 !== 'object'  || Object.keys(f1).length < 3|| Object.keys(f2).length < 3 || Array.isArray(f1) || Array.isArray(f2) || arguments.length > 2){
          return "Invalid";
      }else if(f1.bestFriend === f2.roll && f2.bestFriend === f1.roll){
          return true;
@@ -69,17 +68,19 @@ function  isBestFriend( f1,f2 ) {
          return false;
      }
  }
- 
 
 
-// Problem-05: Let’s Calculate Video watch Time
+
 
 function  calculateWatchTime( times ) {
-    if(!Array.isArray(times) || isNaN(times)){
+    if(!Array.isArray(times) || arguments.length > 1){
         return "Invalid";
     }
     let second = 0;
     for(let time of times){
+        if(typeof(time) !== 'number'){
+            return  "Invalid" 
+        }
         second += time;
     }
 
@@ -91,9 +92,4 @@ function  calculateWatchTime( times ) {
     return { hour: hours , minute: totalMinutes , second: totalSecond } 
 }           
 
- 
 
-
-
-
- 
